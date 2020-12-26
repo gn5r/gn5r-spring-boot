@@ -22,6 +22,8 @@
 		<doma-spring-boot.version>1.5.0</doma-spring-boot.version>
 		<doma2.version>2.29.0</doma2.version>
 		<modelmapper.version>2.3.9</modelmapper.version>
+
+		<common-utils4j.version>0.3.8</common-utils4j.version>
 	</properties>
 
 	<modules>
@@ -92,6 +94,11 @@
 				<groupId>org.seasar.doma</groupId>
 				<artifactId>doma</artifactId>
 				<version>${doma2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.gn5r</groupId>
+				<artifactId>common-utils</artifactId>
+				<version>${common-utils4j.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

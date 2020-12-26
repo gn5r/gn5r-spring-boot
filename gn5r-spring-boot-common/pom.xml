@@ -50,6 +50,10 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.gn5r</groupId>
+			<artifactId>common-utils</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
