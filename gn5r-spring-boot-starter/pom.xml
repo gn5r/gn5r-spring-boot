@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.gn5r</groupId>
+		<artifactId>gn5r-spring-boot</artifactId>
+		<version>${revision}</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<properties>
+		<main>${project.basedir}/..</main>
+	</properties>
+
+	<artifactId>gn5r-spring-boot-starter</artifactId>
+	<packaging>jar</packaging>
+	<name>gn5r-spring-boot-starter</name>
+	<description>gn5r-spring-boot-starter</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.gn5r</groupId>
+			<artifactId>gn5r-spring-boot-common</artifactId>
+			<version>${revision}</version>
+		</dependency>
+	</dependencies>
+</project>

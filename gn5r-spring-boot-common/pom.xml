@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.gn5r</groupId>
+		<artifactId>gn5r-spring-boot</artifactId>
+		<version>${revision}</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<artifactId>gn5r-spring-boot-common</artifactId>
+	<name>gn5r-spring-boot-common</name>
+	<description>gn5r-spring-boot-common</description>
+
+	<properties>
+		<main>${project.basedir}/..</main>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.seasar.doma.boot</groupId>
+			<artifactId>doma-spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.seasar.doma</groupId>
+			<artifactId>doma</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- リソース設定 -->
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources/</directory>
+				<includes>
+					<include>ValidationMessages_ja.properties</include>
+					<include>ValidationMessages.properties</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+</project>
