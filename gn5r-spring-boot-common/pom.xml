@@ -38,14 +38,6 @@
 			<artifactId>modelmapper</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.seasar.doma.boot</groupId>
-			<artifactId>doma-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.seasar.doma</groupId>
-			<artifactId>doma</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
