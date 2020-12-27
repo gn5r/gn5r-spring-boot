@@ -13,14 +13,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 /**
  * <p>
- * {@link RestController} 向けの例外捕捉クラス
+ * {@link RestController} 向けの例外捕捉基底クラス
+ * </p>
+ * <p>
+ * 各サブプロジェクトはこのクラスを継承した {@link RestControllerAdvice} クラスを作成する
  * </p>
  *
  * @author gn5r
  * @see RestRuntimeException
  */
-@RestControllerAdvice
-public class RestRuntimeExceptionHandler extends ResponseEntityExceptionHandler {
+public abstract class AbstractExceptionHandler extends ResponseEntityExceptionHandler {
 
     private static final HttpStatus SERVER_ERROR = HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -32,7 +34,7 @@ public class RestRuntimeExceptionHandler extends ResponseEntityExceptionHandler 
      * @see ErrorResource
      */
     @ExceptionHandler(RestRuntimeException.class)
-    public ResponseEntity<?> handleRestRuntimeException(RestRuntimeException e) {
+    protected ResponseEntity<?> handleRestRuntimeException(RestRuntimeException e) {
 
         // トレース
         CmnLogger.error(e);
@@ -67,7 +69,7 @@ public class RestRuntimeExceptionHandler extends ResponseEntityExceptionHandler 
      * @see ErrorResource
      */
     @ExceptionHandler(NullPointerException.class)
-    public ResponseEntity<?> handleNullPointerException(NullPointerException e) {
+    protected ResponseEntity<?> handleNullPointerException(NullPointerException e) {
 
         // トレース
         CmnLogger.error(e);
