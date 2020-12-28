@@ -1,8 +1,5 @@
 package com.github.gn5r.spring.boot.common.logger;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.gn5r.common.utils.ObjectUtil;
 
 import org.slf4j.Logger;
@@ -10,12 +7,12 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 独自ロガークラス
+ * 
+ * @author gn5r
  */
 public class CmnLogger {
 
     private static final Logger log = LoggerFactory.getLogger(CmnLogger.class);
-
-    private static final Pattern excludes = Pattern.compile("java.lang.*");
 
     /**
      * infoレベルのログ
@@ -23,7 +20,7 @@ public class CmnLogger {
      * @param message メッセージ
      */
     public static void info(Object message) {
-        log.info(setStackTrace(message));
+        log.info(concatString(message));
     }
 
     /**
@@ -32,7 +29,7 @@ public class CmnLogger {
      * @param messages メッセージ配列
      */
     public static void info(Object... messages) {
-        log.info(setStackTrace(messages));
+        log.info(concatString(messages));
     }
 
     /**
@@ -41,7 +38,7 @@ public class CmnLogger {
      * @param message メッセージ
      */
     public static void error(Object message) {
-        log.error(setStackTrace(message));
+        log.error(concatString(message));
     }
 
     /**
@@ -59,7 +56,7 @@ public class CmnLogger {
      * @param message メッセージ
      */
     public static void debug(Object message) {
-        log.debug(setStackTrace(message));
+        log.debug(concatString(message));
     }
 
     /**
@@ -68,7 +65,7 @@ public class CmnLogger {
      * @param messages メッセージ配列
      */
     public static void debug(Object... messages) {
-        log.debug(setStackTrace(messages));
+        log.debug(concatString(messages));
     }
 
     /**
@@ -77,7 +74,7 @@ public class CmnLogger {
      * @param message メッセージ
      */
     public static void trace(Object message) {
-        log.trace(setStackTrace(message));
+        log.trace(concatString(message));
     }
 
     /**
@@ -86,11 +83,11 @@ public class CmnLogger {
      * @param messages メッセージ配列
      */
     public static void trace(Object... messages) {
-        log.trace(setStackTrace(messages));
+        log.trace(concatString(messages));
     }
 
     /**
-     * オブジェクト配列をカンマで連結した文字列を返却する
+     * オブジェクト配列をカンマで連結した文字列に変換し返却する
      *
      * @param objects オブジェクト配列
      * @return メッセージテキスト
@@ -110,42 +107,5 @@ public class CmnLogger {
 
         // 末尾にあるカンマを削除
         return buffer.toString().replaceAll(",$", "");
-    }
-
-    /**
-     * 先頭の {@link StackTraceElement} を返却する
-     * 
-     * @return {@link StackTraceElement}
-     */
-    private static StackTraceElement getFiStackTraceElement() {
-        final StackTraceElement[] elements = Thread.currentThread().getStackTrace();
-
-        for (StackTraceElement e : elements) {
-            // 除外クラスにマッチするか検証
-            final Matcher m = excludes.matcher(e.getClassName());
-
-            // マッチした場合は次のループへ
-            if (m.find()) {
-                continue;
-            }
-            // 除外クラス以外のStackTraceを返却
-            return e;
-        }
-        return null;
-    }
-
-    /**
-     * 呼び出し元のクラス名とメソッド名を付与しログ出力する
-     * 
-     * @param messages メッセージ
-     * @return メッセージテキスト
-     */
-    private static String setStackTrace(Object... messages) {
-        final StackTraceElement element = getFiStackTraceElement();
-
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(element.getClassName() + "." + element.getMethodName() + " - " + concatString(messages));
-
-        return buffer.toString();
     }
 }
