@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.gn5r.spring.boot.mail.autoconfigure.MailServiceAutoConfiguration
