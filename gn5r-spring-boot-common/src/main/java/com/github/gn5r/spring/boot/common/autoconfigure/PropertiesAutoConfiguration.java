@@ -1,6 +1,7 @@
 package com.github.gn5r.spring.boot.common.autoconfigure;
 
 import com.github.gn5r.spring.boot.common.properties.AuthHeaderProperty;
+import com.github.gn5r.spring.boot.common.properties.URLConsoleProperty;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,5 +23,16 @@ public class PropertiesAutoConfiguration {
     @Bean
     public AuthHeaderProperty authHeaderProperty() {
         return new AuthHeaderProperty();
+    }
+
+    /**
+     * URLロギング一括有効/無効フラグプロパティ
+     * 
+     * @return URLConsoleProperty
+     * @see URLConsoleProperty
+     */
+    @Bean
+    public URLConsoleProperty urlConsoleProperty() {
+        return new URLConsoleProperty();
     }
 }
