@@ -61,6 +61,7 @@
 				<includes>
 					<include>ValidationMessages_ja.properties</include>
 					<include>ValidationMessages.properties</include>
+					<include>META-INF/**</include>
 				</includes>
 			</resource>
 		</resources>

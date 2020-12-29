@@ -49,6 +49,7 @@ public class URLConsoleInterceptor implements AsyncHandlerInterceptor {
             throws Exception {
 
         final String url = request.getRequestURL().toString();
+        final String type = request.getMethod();
         // RequestData requestData = new RequestData();
         // requestData.setUrl(url);
         // requestData.setSubDirectory(request.getServletPath());
@@ -82,7 +83,7 @@ public class URLConsoleInterceptor implements AsyncHandlerInterceptor {
             return true;
         }
 
-        CmnLogger.info("Access to URL : [" + url + "]");
+        CmnLogger.info("Access Type : [" + type + "]" + ",Access to URL : [" + url + "]");
 
         return true;
     }
