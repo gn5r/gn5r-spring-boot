@@ -16,7 +16,7 @@ public class MailModel {
     private String[] bcc;
     private String subject;
     private MailBodyModel body;
-    private String formPath;
+    private String templatePath;
     private Context context;
 
     /**

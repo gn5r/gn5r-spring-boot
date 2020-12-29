@@ -88,7 +88,7 @@ public class MailService {
         engine.setTemplateResolver(templateResolver);
 
         context.setVariables(model.getBody().toMap());
-        String template = model.getFormPath();
+        String template = model.getTemplatePath();
         if (StringUtils.isEmpty(template)) {
             template = "/templates/MAIL/sample.txt";
         }
